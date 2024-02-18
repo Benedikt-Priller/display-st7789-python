@@ -23,7 +23,7 @@ import time
 import numpy as np
 
 import spidev
-import RPi.GPIO as GPIO
+import OPi_GPIO.OPi.GPIO as GPIO
 
 
 __version__ = '0.0.4'
@@ -118,7 +118,7 @@ class ST7789(object):
             raise ValueError("Invalid rotation {} for {}x{} resolution".format(rotation, width, height))
 
         GPIO.setwarnings(False)
-        GPIO.setmode(GPIO.BCM)
+        GPIO.setmode(GPIO.BOARD)
 
         self._spi = spidev.SpiDev(port, cs)
         self._spi.mode = 0
